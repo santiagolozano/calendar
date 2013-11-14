@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="../jquery.min.js"></script>
+        
+        <script type="text/javascript" src="calendar.js"></script>
+        <link type="text/css" rel="stylesheet" href="calendar.css">
+        
+        <script type="text/javascript">
+var calendar = null;
+$(function() {
+    calendar = new Calendar("calendar", {
+        initialHour: 9,
+        onClick: function(day, hour) {
+            // Random color
+            var classesList = new Array("blue", "yellow", "pink", "green", "red");
+            var className = classesList[Math.floor((Math.random()*5)+1)-1]+"-activity";
+
+            calendar.addActivity({
+                id: new Date().valueOf(),
+                start: new Date($('#year').val(), $('#month').val()-1, day, hour, 0, 0, 0),
+                end: new Date($('#year').val(), $('#month').val()-1, day, hour+1, 0, 0, 0),
+                title: "Click to delete",
+                class: className,
+                onClick: function(id, start, end, data) {
+                    calendar.removeActivity(id);
+                }
+            });
+        }
+    });
+
+    var now = new Date();
+    $("#year").val(now.getFullYear());
+    $("#month").val(now.getMonth()+1);
+    changeCalendar();
+});
+
+function changeCalendar() {
+    var year = $('#year').val();
+    var month = $('#month').val();
+    
+    calendar.setMonth(year, month);
+
+    calendar.addActivity({
+        id: 1,
+        start: new Date(year, month-1, 2, 10, 0, 0, 0),
+        end: new Date(year, month-1, 2, 12, 0, 0, 0),
+        text: "Click to delete",
+        title: "Without default onMouseOver and onMouseOut event handler",
+        class: "calendar-activity-1",
+        onClick: function(id, start, end, data) {
+            calendar.removeActivity(id);
+            alert("Activity "+id+" was deleted!");
+        },
+        // Disable default behavior
+        onMouseOver: null,
+        OnMouseOut: null
+    });
+    calendar.addActivity({
+        id: 2,
+        start: new Date(year, month-1, 7, 11, 30, 0, 0),
+        end: new Date(year, month-1, 7, 12, 45, 0, 0),
+        data: "I'm the data value!",
+        title: "With default onMouseOver and onMouseOut event handler",
+        class: "calendar-activity-2",
+        onClick: function(id, start, end, data) {
+            alert(data);
+        }
+    });
+    // Only mandatory parameters
+    calendar.addActivity({
+        id: 3,
+        start: new Date(year, month-1, 7, 12, 45, 0, 0),
+        end: new Date(year, month-1, 7, 14, 15, 0, 0)
+    });
+}
+        </script>
+        <style type="text/css">
+            .calendar-activity-1 { font-size: small; font-family: sans-serif; border: 2px solid #55a2d2; background-color: #aadceb; border-radius: 5px; }
+            .calendar-activity-2 { font-size: small; font-family: sans-serif; border: 3px dotted #CFC9BF; background-color: #FDF9C4; border-radius: 2px; }
+        </style>
+    </head>
+    <body>
+        <select id="month" onchange="changeCalendar()">
+                	<option value="1">January</option>
+                	<option value="2">February</option>
+                        <option value="3">March</option>
+                	<option value="4">April</option>
+                	<option value="5">May</option>
+                	<option value="6">June</option>
+                	<option value="7">July</option>
+                	<option value="8">August</option>
+                	<option value="9">September</option>
+                	<option value="10">October</option>
+                	<option value="11">November</option>
+                	<option value="12">December</option>
+                </select>
+        <select id="year" onchange="changeCalendar()">
+                	<option value="2013">2013</option>
+                	<option value="2014">2014</option>
+                </select>
+
+        <div id="calendar"></div>
+    </body>
+</html>

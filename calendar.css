@@ -1,0 +1,77 @@
+table.calendar {
+    font-size: 0.90em;
+    font-family: sans-serif;
+}
+table.calendar td {
+    border: 2px solid #d6d6d6;
+    padding: 2px;
+}
+/* Width of hour cells*/
+table.calendar td:first-child {
+    width: 40px; min-width: 40px;
+}
+/* Header height (bar of days number) */
+table.calendar thead tr td:first-child {
+    height: 15px; min-height: 15px;
+}
+/* Every day number in header */
+table.calendar thead tr td+td {
+    width: 22px; min-width: 22px;
+    text-align: center;
+    background-color: #5fbe5f;
+}
+/* Height of  hour cells */
+table.calendar tbody tr td:first-child {
+    height: 35px; min-height: 35px;
+    text-align: right;
+    vertical-align: top;
+}
+/* Cell for no weekend days */
+table.calendar tbody td.calendar-no-weekend {
+    background-color: white;
+}
+/* Cell for weekend days */
+table.calendar tbody td.calendar-weekend {
+    background-color: #F6E7E7;
+}
+/* Height of calendar (excluding header) */
+div.calendar {
+    height: 560px;
+}
+
+/* Some default styles for activities */
+div.blue-activity {
+    border: 2px solid #55a2d2;
+    background-color: #aadceb;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+}
+div.yellow-activity {
+    border: 2px solid #FFDA9E;
+    background-color: #FDF9C4;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+}
+div.pink-activity {
+    border: 2px solid #FABFB7;
+    background-color: #F8D3D6;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+}
+div.green-activity {
+    border: 2px solid #80A280;
+    background-color: #80C080;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+}
+div.red-activity {
+    border: 2px solid #C88080;
+    background-color: #FF8080;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+}
