@@ -1,4 +1,5 @@
 calendar
 ========
 
-Javascript calendar
+Dependencies:
+* jQuery
