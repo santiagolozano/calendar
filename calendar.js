@@ -196,7 +196,7 @@ function Calendar(containerId, config) {
         if (activityConfig.data===undefined) activityConfig.data = null;
         if (activityConfig.text===undefined) activityConfig.text = null;
         if (activityConfig.title===undefined) activityConfig.title = null;
-        if (activityConfig.class===undefined) activityConfig.class = "blue-activity";
+        if (activityConfig.classCSS===undefined) activityConfig.classCSS = "blue-activity";
         if (activityConfig.style===undefined) activityConfig.style = null;
         if (activityConfig.onClick===undefined) activityConfig.onClick = null;
         if (activityConfig.onDblClick===undefined) activityConfig.onDblClick = null;
@@ -262,7 +262,7 @@ function Calendar(containerId, config) {
             if (activityConfig.title!==null) {
                 div.setAttribute("title", activityConfig.title);
             }
-            div.setAttribute("class", activityConfig.class);
+            div.setAttribute("class", activityConfig.classCSS);
             if (activityConfig.style!==null) {
                 div.setAttribute("style", activityConfig.style);
             }

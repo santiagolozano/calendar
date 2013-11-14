@@ -23,7 +23,7 @@ $(function() {
                 start: new Date($('#year').val(), $('#month').val()-1, day, hour, 0, 0, 0),
                 end: new Date($('#year').val(), $('#month').val()-1, day, hour+1, 0, 0, 0),
                 title: "Click to delete",
-                class: className,
+                classCSS: className,
                 onClick: function(id, start, end, data) {
                     calendar.removeActivity(id);
                 }
@@ -49,7 +49,7 @@ function changeCalendar() {
         end: new Date(year, month-1, 2, 12, 0, 0, 0),
         text: "Click to delete",
         title: "Without default onMouseOver and onMouseOut event handler",
-        class: "calendar-activity-1",
+        classCSS: "calendar-activity-1",
         onClick: function(id, start, end, data) {
             calendar.removeActivity(id);
             alert("Activity "+id+" was deleted!");
@@ -64,7 +64,7 @@ function changeCalendar() {
         end: new Date(year, month-1, 7, 12, 45, 0, 0),
         data: "I'm the data value!",
         title: "With default onMouseOver and onMouseOut event handler",
-        class: "calendar-activity-2",
+        classCSS: "calendar-activity-2",
         onClick: function(id, start, end, data) {
             alert(data);
         }
